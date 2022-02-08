@@ -19,7 +19,7 @@ import { Screen17 } from './components/screens/Screen17';
 import { Screen18 } from "./components/screens/Screen18";
 import { Screen19 } from "./components/screens/Screen19";
 import { Screen20 } from "./components/screens/Screen20";
-import { Screen21 } from "./components/screens/Screen21";
+import { Screen21 } from "./components/screens/Screen21/Screen21";
 import { Screen22 } from "./components/screens/Screen22";
 
 export const screens = [

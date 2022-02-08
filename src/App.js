@@ -51,12 +51,12 @@ export function App() {
   }, []);
 
   return (
+    <ProgressProvider value={progress}>
       <Wrapper styles={{ height }}>
-        <ProgressProvider value={progress}>
           <ComponentWrapper>
-            <Component />
+              <Component />
           </ComponentWrapper>
-        </ProgressProvider>
       </Wrapper>
+    </ProgressProvider>
   );
 }
