@@ -5,18 +5,17 @@ import { RotationInfo } from './RotationInfo';
 import { rotations } from '../../rotations.config';
 import { TextStyled, Title } from './textStyled';
 import { useProgress } from '../../hooks/useProgress';
-import { BigSphereTop } from './BigSphereTop';
 
 const Wrapper = styled.div`
     opacity: ${({rotationInfo}) => rotationInfo ? 0.1 : 1};
-    padding: 0 15px 0 35px;
+    padding: 0 30px 15px 35px;
 `;
 
 const TextWrapper = styled.div`
     margin: 20px 0;
 `;
 export const DefaultQuestionWrapper = (props) => {
-    const {question} = props;
+    const {question, isTextShown = true} = props;
     const {progress} = useProgress();
     return (
         <WithHeaderWrapper>
@@ -25,7 +24,7 @@ export const DefaultQuestionWrapper = (props) => {
                 <TextWrapper>
                     <Title>{question.title}</Title>
                     <br />
-                    <TextStyled>{question.text}</TextStyled>
+                    {isTextShown && <TextStyled>{question.text}</TextStyled>}
                 </TextWrapper>
 
                 {props.children}

@@ -3,32 +3,31 @@ import { getQuestionById } from '../../utils/getQuestionById';
 import { TaskQuestionWrapper } from '../common/TaskQuestionWrapper';
 import styled from 'styled-components';
 import { SvgWrapper } from '../common/SvgWrapper';
-import { TaskSurfaceL } from '../svg/TaskSurfaceL';
-import { TaskSurfaceR } from '../svg/TaskSurfaceR';
+import { SphereDent } from '../svg/SphereDent';
+import { BentSurface } from '../svg/BentSurface';
+import { imageSizeMixin } from '../../utils/styles/mixins';
 
-const BentSurfaceLeftWrapper = styled(SvgWrapper)`
-    bottom: 0;
-    left: 0;
-    width: 129px;
-    height: 23px;
+const SphereDentWrapper = styled(SvgWrapper)`
+    left: 21px;
+    bottom: 12px;
+    
+    ${imageSizeMixin({height: '120px', width: '115px'})};
 `;
 
-const BentSurfaceRightWrapper = styled(SvgWrapper)`
-    bottom: 0;
-    right: 0;
-    width: 50px;
-    height: 50px;
-`;
-
-const LeftSurface = styled(TaskSurfaceL)`
+const SphereDentStyled = styled(SphereDent)`
+    width: 100%;
     height: 100%;
-    width: 220px;
 `;
 
-const RightSurface = styled(TaskSurfaceR)`
-    position: absolute;
+const SurfaceBentWrapper = styled(SvgWrapper)`
     right: 0;
-    height: 100%;
+    bottom: 0;
+
+    ${imageSizeMixin({height: '143px', width: '200px'})};
+`;
+
+const SurfaceBentStyled = styled(BentSurface)`
+    ${imageSizeMixin({height: '350px', width: '350px'})};
 `;
 
 export const Screen20 = () => {
@@ -36,12 +35,12 @@ export const Screen20 = () => {
     return (
         <>
             <TaskQuestionWrapper question={question}/>
-            <BentSurfaceLeftWrapper>
-                <LeftSurface/>
-            </BentSurfaceLeftWrapper>
-            <BentSurfaceRightWrapper>
-                <RightSurface/>
-            </BentSurfaceRightWrapper>
+            <SphereDentWrapper>
+                <SphereDentStyled />
+            </SphereDentWrapper>
+            <SurfaceBentWrapper>
+                <SurfaceBentStyled/>
+            </SurfaceBentWrapper>
         </>
     );
 };

@@ -5,15 +5,14 @@ import { MentorCard } from '../common/MentorCard';
 import { Button } from '../common/Button';
 import { useProgress } from '../../hooks/useProgress';
 import { TextStyled, Title } from '../common/textStyled';
-import { Sphere } from '../svg/Sphere';
 import { SvgWrapper } from '../common/SvgWrapper';
 import { BentSurface } from '../svg/BentSurface';
 import { DotsCircle } from '../svg/DotsCircle';
 import { BigSphereTop } from '../common/BigSphereTop';
+import { imageSizeMixin } from '../../utils/styles/mixins';
 
 const Wrapper = styled.div`
     padding: 0 15px;
-    width: 100%;
 `;
 
 const PositionText = styled(TextStyled)`
@@ -22,35 +21,43 @@ const PositionText = styled(TextStyled)`
 `;
 
 const TextWrapper = styled.div`
-    max-width: 300px;
+    max-width: 350px;
     padding: 0 15px 0 25px;
 `;
 
 const BentSurfaceWrapper = styled(SvgWrapper)`
     bottom: 0;
     left: 0;
-    width: 87px;
-    height: 81px;
+    
+    ${imageSizeMixin({height: '81px', width: '87px'})};
 `;
 
 const BentSurfaceStyled = styled(BentSurface)`
     position: absolute;
     right: -55px;
-    width: 232px;
-    height: 230px;
+    
+    ${imageSizeMixin({height: '230px', width: '232px'})};
+
+    @media screen and (min-width: 640px){
+          right: calc(-55px * var(--imgSmKoef));
+    }
+    
+     @media screen and (max-height: 630px){
+          right: calc(-55px / var(--imgSmKoef));
+     }
 `;
 
 const DotCircleWrapper = styled(SvgWrapper)`
     bottom: 0;
     right: 0;
-    width: 82px;
-    height: 92px;
+    
+    ${imageSizeMixin({height: '92px', width: '82px'})};
 `;
 const DotsCircleStyled = styled(DotsCircle)`
     position: absolute;
-    width: 161px;
-    height: 159px;
     left: 0;
+     
+    ${imageSizeMixin({height: '159px', width: '161px'})};
 `;
 
 const MentorsContainer = styled.div`
@@ -60,11 +67,11 @@ const MentorsContainer = styled.div`
 `;
 
 const MentorRow1 = styled.div`
-  display: flex;
+    display: flex;
 `;
 const MentorRow2 = styled(MentorRow1)`
-  margin-top: -13px;
-  margin-left: 52px;
+    margin-top: -13px;
+    margin-left: 52px;
 `;
 const MentorInfoWrapper = styled.div`
     border: 2px solid white;
@@ -116,9 +123,9 @@ export const Screen2 = () => {
                             <Title>Привет!</Title>
                             <br/>
                             <TextStyled>
-                                Ты в начале своего пути к карьере мечты в PepsiCo! Сделай первый шаг в верном
-                                направлении, выбрав своего ментора :)
-                                {'\nИменно этот человек станет твоим наставником на протяжении всей программы и будет помогать с выбором ротаций и прокачкой твоих лидерских навыков.'}
+                                Ты в начале своего пути к карьере мечты в PepsiCo! Сейчас тебе нужно выбрать своего ментора :) Этот человек станет твоим наставником и будет помогать
+                                {'\n'}с выбором ротаций и прокачкой лидерских навыков
+                                {'\n'}на протяжении всей программы.
                             </TextStyled>
                         </TextWrapper>
                     )

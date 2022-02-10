@@ -7,6 +7,7 @@ import { PROJECT_NAMES } from '../../constants/projectNames';
 import { rotations } from '../../rotations.config';
 import { WithHeaderWrapper } from '../common/WithHeaderWrapper';
 import { TextStyled, Title } from '../common/textStyled';
+import { ROTATION_TYPES } from '../../constants/rotationsTypes';
 
 const Wrapper = styled.div`
     padding: 0 35px 35px;
@@ -65,7 +66,6 @@ export const Screen22 = () => {
 
     const getCompetenceFillPercentage = (points) => {
         const max_points = 8;
-        console.log(points);
         return (points / max_points) * 100;
     }
 
@@ -81,7 +81,10 @@ export const Screen22 = () => {
                 <TextStyled>Ты прошел Твой карьерный BREAKOUT и стал настоящим коммерческим лидером!</TextStyled>
                 <PathWrapper>
                     <Text>Твой путь был тяжел: </Text>
-                    <RotationWrapper>Проект: {PROJECT_NAMES[project]}</RotationWrapper>
+                    <RotationWrapper>
+                        <TextStyled>{rotations[ROTATION_TYPES.accManagement].name}</TextStyled>
+                    </RotationWrapper>
+                    <RotationWrapper><TextStyled>Проект: {PROJECT_NAMES[project]}</TextStyled></RotationWrapper>
                     {passedRotations.map(rotation => (
                         <RotationWrapper key={rotation}>
                             <TextStyled>{rotations[rotation].name}</TextStyled>

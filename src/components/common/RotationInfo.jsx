@@ -23,6 +23,7 @@ const InfoSight = styled.div`
   border: 1px solid white;
   margin-top: -10px;
   margin-left: 5px;
+  cursor: pointer;
   & p{
     transform: rotate(45deg);
     text-align: center;

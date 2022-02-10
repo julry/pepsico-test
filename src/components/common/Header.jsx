@@ -22,11 +22,17 @@ const MentorCardStyled = styled(MentorCard)`
   margin-right: 20px;
   margin-top: 30px;
   z-index: 100;
+  
+  & img {
+    margin-left: -5px;
+    margin-top: 3px;
+  }
 `;
 
 const SphereStyled = styled(BigSphereTop)`
     position: absolute;
     left: 50%;
+    top: 0;
     transform: translate(-50%, 0);
 `;
 
@@ -44,6 +50,7 @@ const PhraseWrapper = styled.div`
     z-index: 10;
     width: calc(100% - 74px);
     padding: 0 35px 0 13px;
+    max-width: 350px;
 `;
 
 export const Header = () => {
@@ -65,10 +72,12 @@ export const Header = () => {
         }
     };
     return (
-        <Wrapper>
+        <>
             <SphereStyled/>
-            {phrase && <PhraseWrapper> <p>{phrase}</p></PhraseWrapper>}
-            <MentorCardStyled onClick={onMentorClick} mentor={mentor}/>
-        </Wrapper>
+            <Wrapper>
+                {phrase && <PhraseWrapper><p>{phrase}</p></PhraseWrapper>}
+                <MentorCardStyled onClick={onMentorClick} mentor={mentor}/>
+            </Wrapper>
+        </>
     );
 };

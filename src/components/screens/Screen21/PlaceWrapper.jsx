@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { useDrag, useDrop } from 'react-dnd';
-import { usePreview, useMultiDrop, useMultiDrag } from 'react-dnd-multi-backend'
+import { usePreview } from 'react-dnd-multi-backend'
 
 const WrapperDrop = styled.div`
     margin-bottom:  ${({touched}) => touched ? '12px' : '19px'};
@@ -9,6 +9,7 @@ const WrapperDrop = styled.div`
       margin-left: ${({isPlaceName, touched}) => isPlaceName || touched ? '0' : 'auto'};
       margin-top: ${({elemNum, touched}) => touched ? 0 : -(15 - +elemNum * 3) + 'px'};
     }
+    
     -webkit-touch-callout: none;
 `
 
@@ -34,8 +35,15 @@ const generatePreview = (type, item, style) => (
 const PlacePreview = (props) => {
     const { place, type, isPlaceName } = props;
     const { display, style } = usePreview();
-
+    let isMounted;
     const text = place[type+'Title'];
+
+    useEffect(() => {
+        isMounted = true;
+        return () => {
+            isMounted = false;
+        };
+    }, [])
 
     if (!display) {
         return null;

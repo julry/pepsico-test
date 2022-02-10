@@ -6,26 +6,27 @@ import { ROTATION_TYPES } from '../../constants/rotationsTypes';
 import { SvgWrapper } from '../common/SvgWrapper';
 import { BentSurface } from '../svg/BentSurface';
 import { Tor } from '../svg/Tor';
+import { imageSizeMixin } from '../../utils/styles/mixins';
 
 const BentSurfaceWrapper = styled(SvgWrapper)`
     bottom: 0;
     left: 0;
-    width: 254px;
-    height: 179px;
+    
+    ${imageSizeMixin({height: '179px', width: '254px'})};
 `;
 
 const BentSurfaceStyled = styled(BentSurface)`
     position: absolute;
     right: 5px;
-    width: 332px;
-    height: 330px;
+    
+    ${imageSizeMixin({height: '330px', width: '332px'})};
 `;
 
 const TorWrapper = styled(SvgWrapper)`
-  width: 108px;
-  height: 106px;
   right: 0;
   bottom: 10.79vh;
+  
+  ${imageSizeMixin({height: '106px', width: '108px'})};
 `;
 
 

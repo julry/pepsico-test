@@ -6,12 +6,13 @@ import styled from 'styled-components';
 import { SvgWrapper } from '../common/SvgWrapper';
 import { SphereDent } from '../svg/SphereDent';
 import { DotsCircle } from '../svg/DotsCircle';
+import { imageSizeMixin } from '../../utils/styles/mixins';
 
 const SphereDentWrapper = styled(SvgWrapper)`
     bottom: 30px;
     left: 10.9333vw;
-    height: 124px;
-    width: 129px;
+        
+    ${imageSizeMixin({height: '124px', width: '129px'})};
 `;
 
 const SphereDentStyled = styled(SphereDent)`
@@ -21,14 +22,14 @@ const SphereDentStyled = styled(SphereDent)`
 const DotsCircleWrapper = styled(SvgWrapper)`
     bottom: 0;
     right: 0;
-    height: 91px;
-    width: 93px;
+    
+    ${imageSizeMixin({height: '91px', width: '93px'})};
 `;
 const DotsCircleStyled = styled(DotsCircle)`
     position: absolute;
     left: 0;
-    width: 115px;
-    height: 115px;
+    
+    ${imageSizeMixin({height: '115px', width: '115px'})};
 `;
 
 export const Screen13 = () => {

@@ -6,42 +6,53 @@ import styled from 'styled-components';
 import { SvgWrapper } from '../common/SvgWrapper';
 import { BentSurface } from '../svg/BentSurface';
 import { Cylinder } from '../svg/Cylinder';
+import { imageSizeMixin } from '../../utils/styles/mixins';
 
 const BentSurfaceWrapper = styled(SvgWrapper)`
     bottom: 0;
     right: 0;
-    width: 100px;
-    height: 177px;
+    
+    ${imageSizeMixin({height: '177px', width: '100px'})};
 `;
 
 const BentSurfaceStyled = styled(BentSurface)`
     position: absolute;
     left: 0;
     top: -65px;
-    width: 332px;
-    height: 330px;
+    
+    ${imageSizeMixin({height: '332px', width: '330px'})};
+    
+    @media screen and (min-width: 640px){
+      top: calc(-65px * var(--imgSmKoef));
+    }
+    
+    @media screen and (max-height: 630px){
+       top: calc(-65px / var(--imgSmKoef));
+    }
 `;
 
 const CylinderWrapper = styled(SvgWrapper)`
     bottom: 0;
     left: 0;
-    height: 132px;
-    width: 192px;
+    
+    ${imageSizeMixin({height: '132px', width: '192px'})};
 `;
 
 const CylinderStyled = styled(Cylinder)`
-    width: 272px;
-    height: 260px;
     position: absolute;
     right: 0;
+    
+    ${imageSizeMixin({height: '260px', width: '272px'})};
 `;
 
 export const Screen18 = () => {
-    const {currentRotation, updateRotations} = useProgress();
+    const { rotations, updateRotations} = useProgress();
+
+    const isInsights = rotations[1] === ROTATION_TYPES.insights;
 
     const question = {
-        title: currentRotation === ROTATION_TYPES.insights ? 'Ну как, получил собственный инсайт?' : 'Доходы – дело всегда приятное!',
-        text: currentRotation === ROTATION_TYPES.insights ? 'Идем дальше!' : 'Двигаемся дальше?',
+        title: isInsights ? 'Ну как, получил собственный инсайт?' : 'Доходы – дело всегда приятное!',
+        text: isInsights ? 'Идем дальше!' : 'Двигаемся дальше?',
         answers: [
             {
                 id: '1',
@@ -56,7 +67,7 @@ export const Screen18 = () => {
         ]
     };
     const answerFunction = (answer) => {
-        updateRotations(answer.rotation);
+        setTimeout(() => updateRotations(answer.rotation), 210);
     };
     return (
         <>

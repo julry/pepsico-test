@@ -7,11 +7,11 @@ import MultiBackend, { MouseTransition, TouchTransition } from 'react-dnd-multi-
 import { PlaceWrapper } from './PlaceWrapper';
 
 const Wrapper = styled.div`
-    width: 100%;
-    min-width: 356px;
+    width: auto;
+    margin: 0 auto;
     display: grid;
     grid-template-rows: repeat(4, 1fr);
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: ${({isEverythingTouched}) => isEverythingTouched ? '178px 143px' : 'repeat(2, 1fr)'};
 `;
 
 const HTML5toTouch = {
@@ -69,12 +69,11 @@ export const Board = (props) => {
         onPositionChange(newPlaces);
     }
 
-    function handlePlaceDrag(place) {
-    }
+    const isEverythingTouched = places.filter(place => !place.touched).length < 1;
 
     return (
         <DndProvider backend={MultiBackend} options={HTML5toTouch}>
-            <Wrapper>
+            <Wrapper isEverythingTouched={isEverythingTouched}>
                 {
                     places.map((place, placeNum) =>
                         place.order.map((type, num)=> (
@@ -84,7 +83,6 @@ export const Board = (props) => {
                                 type={type}
                                 place={place}
                                 onPlaceDrop={handlePlacesDrop}
-                                onPlaceStartDrag={handlePlaceDrag}
                             />
                         ))
                     )

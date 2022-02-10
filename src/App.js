@@ -7,8 +7,8 @@ import { background } from './constants/images'
 
 const Wrapper = styled.div`
   ${({ styles }) => styles};
-  background: url(${background});
   background-size: cover;
+  position: relative;
   overflow: hidden;
 `;
 
@@ -21,6 +21,7 @@ const ComponentWrapper = styled.div`
   position: relative;
   overflow: auto;
   white-space: pre-line;
+  --imgSmKoef: 1.50537;
 `;
 
 export function App() {
@@ -52,7 +53,7 @@ export function App() {
 
   return (
     <ProgressProvider value={progress}>
-      <Wrapper styles={{ height }}>
+      <Wrapper styles={{ height }} style={{ backgroundImage: `url(${background})` }}>
           <ComponentWrapper>
               <Component />
           </ComponentWrapper>

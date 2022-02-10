@@ -9,6 +9,7 @@ const Wrapper = styled.div`
     transform: rotate(-45deg);
     overflow: hidden;
     border: 2px solid white;
+    cursor: pointer;
     background: ${({active}) => active ? 'linear-gradient(225deg, #004C97 0%, #090909 100.05%)' : 'transparent'};
 `;
 

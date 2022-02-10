@@ -9,12 +9,17 @@ import { TextStyled } from '../common/textStyled';
 import { Cylinder } from '../svg/Cylinder';
 import { DotsCircle } from '../svg/DotsCircle';
 import { SvgWrapper } from '../common/SvgWrapper';
-import { SphereDent } from '../svg/SphereDent';
+import { BentSurface } from '../svg/BentSurface';
+import { imageSizeMixin } from '../../utils/styles/mixins';
 
 const SphereStyled = styled(Sphere)`
-    width: 127px;
-    height: 60px;
     margin-bottom: 20px;
+    
+    ${imageSizeMixin({height: '60px', width: '127px'})};
+
+    @media screen and (min-width: 640px){
+          margin-bottom: 30px;
+    }
 `;
 
 const IntroTitle = styled(TextStyled)`
@@ -40,41 +45,57 @@ const LogoStyled = styled(Logo)`
     height: 32px;
     margin-top: auto;
     margin-bottom: 50px;
+    
+    ${imageSizeMixin({height: '32px', width: '120px'})};
 `;
 
 const CylinderWrapper = styled(SvgWrapper)`
     bottom: 10.4947vh;
     left: 0;
-    height: 175px;
-    width:93px;
+    
+    ${imageSizeMixin({height: '175px', width: '93px'})};
 `;
-
-const SphereDentWrapper = styled(SvgWrapper)`
-    bottom: 110px;
-    right: 0;
-    height: 119px;
-    width: 94px;
-`;
-
-const SphereDentStyled = styled(SphereDent)`
-    height: 100%;
-    width: 114px;
-    position: absolute;
-    left: 0;
-`
 
 const CylinderStyled = styled(Cylinder)`
-    width: 198px;
-    height: 190px;
     position: absolute;
     right: 0;
+    
+    ${imageSizeMixin({height: '190px', width: '198px'})};
 `;
+
+
+const BentSurfaceWrapper = styled(SvgWrapper)`
+    bottom: 15px;
+    right: 0;
+
+    ${imageSizeMixin({height: '157px', width: '91px'})};
+`;
+
+const BentSurfaceStyled = styled(BentSurface)`
+    top: -75px;
+    position: absolute;
+    left: 0;
+    
+    ${imageSizeMixin({height: '325px', width: '350px'})};
+
+    @media screen and (min-width: 640px){
+        top: -113px;
+    }
+    
+    @media screen and (max-height: 630px){
+          top: -50px;
+    }
+`;
+
 
 const DotsCircleStyled = styled(DotsCircle)`
     margin-top: 37px;
-    width: 71px;
-    height: 71px;
-`
+    ${imageSizeMixin({height: '71px', width: '71px'})};
+
+    @media screen and (min-width: 640px){
+        margin-top: 55px;
+    }
+`;
 export const Screen1 = () => {
     const {next} = useProgress();
     return (
@@ -86,12 +107,12 @@ export const Screen1 = () => {
             </ImageWrapper>
             <Button onClick={next}>Играть</Button>
             <CylinderWrapper>
-                <CylinderStyled />
+                <CylinderStyled/>
             </CylinderWrapper>
-            <DotsCircleStyled />
-            <SphereDentWrapper>
-                <SphereDentStyled />
-            </SphereDentWrapper>
+            <DotsCircleStyled/>
+            <BentSurfaceWrapper>
+                <BentSurfaceStyled/>
+            </BentSurfaceWrapper>
             <LogoStyled/>
         </>
     );
