@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
@@ -12,6 +12,14 @@ const Wrapper = styled.div`
     display: grid;
     grid-template-rows: repeat(4, 1fr);
     grid-template-columns: ${({isEverythingTouched}) => isEverythingTouched ? '178px 143px' : 'repeat(2, 1fr)'};
+    
+    @media screen and (max-width: 365px) {
+        grid-template-columns: ${({isEverythingTouched}) => isEverythingTouched ? '150px 123px' : 'repeat(2, 1fr)'};
+    } 
+    
+    @media screen and (max-width: 300px) {
+        grid-template-columns: ${({isEverythingTouched}) => isEverythingTouched ? '130px 100px' : 'repeat(2, 1fr)'};
+    }
 `;
 
 const HTML5toTouch = {

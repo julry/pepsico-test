@@ -3,32 +3,29 @@ import styled from 'styled-components';
 import { TextStyled } from './textStyled';
 import { useProgress } from '../../hooks/useProgress';
 import { CloseIcon } from '../svg/CloseIcon';
+import { InfoIcon } from '../svg/InfoIcon';
 
 const Wrapper = styled.div`
     display: flex;
     position: relative;
-    margin: 0 35px;
+    margin-left: 35px;
 `;
 
 const Label = styled(TextStyled)`
    text-transform: uppercase;
+   width: max-content;
+   
+   @media screen and (max-height: 630px){
+        font-size: 15px;
+   }
 `;
 
-const InfoSight = styled.div`
-  font-size: 16px;
-  transform: rotate(-45deg);
-  opacity: 0.8;
-  width: 16px;
-  height: 16px;
-  border: 1px solid white;
+const InfoSight = styled(InfoIcon)`
+  width: 21px;
+  height: 21px;
   margin-top: -10px;
   margin-left: 5px;
   cursor: pointer;
-  & p{
-    transform: rotate(45deg);
-    text-align: center;
-    margin-left: -2px;
-  }
 `;
 
 const Modal = styled.div`
@@ -38,6 +35,8 @@ const Modal = styled.div`
     border: 2px solid white;
     padding: 55px 15px 8px;
     z-index: 20;
+    width: calc(100vw - 70px);
+    max-width: 305px;
 `;
 const CloseIconStyled = styled(CloseIcon)`
     position: absolute;
@@ -58,7 +57,7 @@ export const RotationInfo = (props) => {
     return (
         <Wrapper>
             <Label>{rotation.name}</Label>
-            <InfoSight onClick={onInfoClick}><p>i</p></InfoSight>
+            <InfoSight onClick={onInfoClick} />
             {progress.rotationInfo && <Modal>
                 <CloseIconStyled onClick={onInfoClick}/>
                 <TextStyled>{rotation.text} </TextStyled>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useProgress } from '../../hooks/useProgress';
 import { QuestionWrapper } from '../common/QuestionWrapper';
 import { ROTATION_TYPES } from '../../constants/rotationsTypes';
@@ -33,6 +33,8 @@ const DotsCircleStyled = styled(DotsCircle)`
 `;
 
 export const Screen13 = () => {
+    const [chosenAnswerId, setChosenAnswerId] = useState('');
+
     const {updateRotations} = useProgress();
     const question = {
         title: 'В какую команду ворвемся теперь?',
@@ -51,11 +53,12 @@ export const Screen13 = () => {
         ]
     };
     const answerFunction = (answer) => {
+        setChosenAnswerId(answer.id);
         updateRotations(answer.rotation);
     };
     return (
         <>
-            <QuestionWrapper question={question} answerFunction={answerFunction}/>
+            <QuestionWrapper question={question} answerFunction={answerFunction} chosenAnswerId={chosenAnswerId}/>
             <SphereDentWrapper>
                 <SphereDentStyled/>
             </SphereDentWrapper>

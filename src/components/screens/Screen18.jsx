@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useProgress } from '../../hooks/useProgress';
 import { QuestionWrapper } from '../common/QuestionWrapper';
 import { ROTATION_TYPES } from '../../constants/rotationsTypes';
@@ -46,6 +46,8 @@ const CylinderStyled = styled(Cylinder)`
 `;
 
 export const Screen18 = () => {
+    const [chosenAnswerId, setChosenAnswerId] = useState('');
+
     const { rotations, updateRotations} = useProgress();
 
     const isInsights = rotations[1] === ROTATION_TYPES.insights;
@@ -67,11 +69,12 @@ export const Screen18 = () => {
         ]
     };
     const answerFunction = (answer) => {
+        setChosenAnswerId(answer.id);
         setTimeout(() => updateRotations(answer.rotation), 210);
     };
     return (
         <>
-            <QuestionWrapper question={question} answerFunction={answerFunction}/>
+            <QuestionWrapper question={question} answerFunction={answerFunction} chosenAnswerId={chosenAnswerId}/>
             <BentSurfaceWrapper>
                 <BentSurfaceStyled/>
             </BentSurfaceWrapper>

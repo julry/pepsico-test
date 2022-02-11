@@ -8,7 +8,7 @@ import { useProgress } from '../../hooks/useProgress';
 
 const Wrapper = styled.div`
     opacity: ${({rotationInfo}) => rotationInfo ? 0.1 : 1};
-    padding: 0 30px 15px 35px;
+    padding: 0 30px 0 35px;
 `;
 
 const TextWrapper = styled.div`

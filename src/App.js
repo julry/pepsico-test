@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useRef, useState } from 'react';
 import styled from "styled-components";
 import { preloadImage } from "./utils/preloadImage";
 import { ProgressProvider } from './context/ProgressContext';
@@ -27,15 +27,21 @@ const ComponentWrapper = styled.div`
 export function App() {
   const [height, setHeight] = useState('100vh');
   const progress = useProgressInit();
-  const { screen } = progress;
+  const { screen, updateProgress } = progress;
 
   const Component = screen?.component || (() => null);
+  const wrapperRef = useRef(null);
+
+  useEffect(() => {
+    updateProgress('wrapperRef', wrapperRef);
+  }, []);
 
   useEffect(() => {
     const preloadImages = screen?.preloadImages;
     const clears = preloadImages && preloadImages.map(img => preloadImage(img));
     return () => clears && clears.forEach(clear => clear());
   }, [screen]);
+
 
   useEffect(() => {
     function handleResize() {
@@ -54,7 +60,7 @@ export function App() {
   return (
     <ProgressProvider value={progress}>
       <Wrapper styles={{ height }} style={{ backgroundImage: `url(${background})` }}>
-          <ComponentWrapper>
+          <ComponentWrapper ref={wrapperRef}>
               <Component />
           </ComponentWrapper>
       </Wrapper>

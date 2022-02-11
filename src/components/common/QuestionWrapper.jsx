@@ -8,6 +8,8 @@ const AnswerWrapper = styled.div`
     border: 2px solid white;
     font-size: 18px;
     padding: 15px;
+    position: relative;
+    z-index: 20;
     cursor: pointer;
     background: ${({chosen}) => chosen ? 'linear-gradient(225deg, #004C97 0%, #090909 100.05%)' : 'transparent'};
     ${({isTouchDevice}) =>  isTouchDevice ? `` : `
@@ -19,11 +21,17 @@ const AnswerWrapper = styled.div`
     & + &{
         margin-top: 13px;
     }
+    
+    &:last-child {
+        margin-bottom: 10px;
+    }
 `;
 
 export const QuestionWrapper = (props) => {
     const {question, answerFunction} = props;
     const {next, updateAnswer, answers} = useProgress();
+
+    const chosenAnswerId = props.chosenAnswerId ?? answers[question.id];
 
     const onAnswerChoose = (answer) => {
         if (answerFunction) {
@@ -40,7 +48,7 @@ export const QuestionWrapper = (props) => {
                     isTouchDevice={isTouchDevice()}
                     key={answer.id}
                     onClick={() => onAnswerChoose(answer)}
-                    chosen={answers[question.id] === answer.id}
+                    chosen={chosenAnswerId === answer.id}
                 >
                     {answer.text}
                 </AnswerWrapper>

@@ -54,23 +54,44 @@ const Wrapper = styled.div`
       flex-direction: column;
       align-items: center;
       margin-left: -25px;
-      width: calc(100vw - 25px);
+      margin-top: -10px;
 `;
 
 const ButtonStyled = styled(Button)`
     width: 295px;
+    @media screen and (max-width: 640px){
+        margin-left: 25px;
+    }
+    @media screen and (max-width: 300px) {
+            width: 200px;
+    }
 `;
-const BentSurfaceLeftWrapper = styled(SvgWrapper)`
+
+const SurfacesWrapper = styled.div`
+    position: absolute;
     bottom: 0;
-    left: 0;
+    display: flex;
+    width: 100vw;
+    margin-right: -15px;
+    justify-content: space-between;
+    align-items: flex-end;
     
+    @media screen and (max-height: 615px) and (max-width: 640px){
+          position: static;
+    }
+    
+    @media screen and (max-height: 660px) and (min-width: 640px){
+          position: static;
+    }
+`;
+
+const BentSurfaceLeftWrapper = styled(SvgWrapper)`
+    position: relative;
     ${imageSizeMixin({height: '23px', width: '129px'})};
 `;
 
 const BentSurfaceRightWrapper = styled(SvgWrapper)`
-    bottom: 0;
-    right: 0;
-    
+    position: relative;
     ${imageSizeMixin({height: '50px', width: '50px'})};
 `;
 
@@ -80,8 +101,12 @@ const LeftSurface = styled(RotatedBentSurface)`
     left: -33px;
     ${imageSizeMixin({height: '260px', width: '260px'})};
     
-     @media screen and (min-width: 640px){
-        left: -50px;
+    @media screen and (min-width: 640px){
+        left: calc(-33px * var(--imgSmKoef))
+    }
+    
+    @media screen and (max-height: 630px){
+        left: calc(-33px / var(--imgSmKoef))
     }
 `;
 
@@ -90,14 +115,19 @@ const RightSurface = styled(BentSurface)`
     right: -113px;
     
     ${imageSizeMixin({height: '313px', width: '313px'})};
+    
     @media screen and (min-width: 640px){
-        right: -170px;
+        right: calc(-113px * var(--imgSmKoef))
+    }
+    
+    @media screen and (max-height: 630px){
+        right: calc(-113px / var(--imgSmKoef))
     }
 `;
 
 
 export const Screen21 = () => {
-    const {currentRotation, next, progress, updateAnswer} = useProgress();
+    const { next, updateAnswer} = useProgress();
     const [places, setPlaces] = useState(INITIAL_PLACES);
 
     const question = getQuestionById('16');
@@ -129,12 +159,14 @@ export const Screen21 = () => {
             <Wrapper>
                 <Board places={places} onPositionChange={onPositionChange}/>
                 <ButtonStyled onClick={onPlacesSave}>Сохранить</ButtonStyled>
-                <BentSurfaceLeftWrapper>
-                    <LeftSurface/>
-                </BentSurfaceLeftWrapper>
-                <BentSurfaceRightWrapper>
-                    <RightSurface/>
-                </BentSurfaceRightWrapper>
+                <SurfacesWrapper>
+                    <BentSurfaceLeftWrapper>
+                        <LeftSurface/>
+                    </BentSurfaceLeftWrapper>
+                    <BentSurfaceRightWrapper>
+                        <RightSurface/>
+                    </BentSurfaceRightWrapper>
+                </SurfacesWrapper>
             </Wrapper>
         </DefaultQuestionWrapper>
     );

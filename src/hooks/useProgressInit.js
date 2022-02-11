@@ -59,6 +59,7 @@ export function useProgressInit() {
         const canNext = nextScreenIndex <= parsedScreens.length - 1;
 
         if (canNext) {
+            if (progress.wrapperRef) progress.wrapperRef.current.scrollTop = 0;
             setCurrentScreenIndex(nextScreenIndex);
         }
     };
@@ -83,7 +84,7 @@ export function useProgressInit() {
         setProgress(progress => ({...progress, [name]: value}));
     };
 
-    return useMemo(() => ({
+    return {
         progress,
         currentScreenIndex,
         user: progress.user,
@@ -97,13 +98,5 @@ export function useProgressInit() {
         updateAnswer,
         updateRotations,
         updateProgress,
-    }), [
-        progress,
-        currentScreenIndex,
-        screen,
-        next,
-        updateAnswer,
-        updateRotations,
-        updateProgress
-    ]);
+    };
 }

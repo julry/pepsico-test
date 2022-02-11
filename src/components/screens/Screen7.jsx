@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useProgress } from '../../hooks/useProgress';
 import { QuestionWrapper } from '../common/QuestionWrapper';
@@ -32,6 +32,7 @@ const TorWrapper = styled(SvgWrapper)`
 
 
 export const Screen7 = () => {
+    const [chosenAnswerId, setChosenAnswerId] = useState('');
     const {updateRotations} = useProgress();
     const question = {
         title: 'Что дальше?',
@@ -50,11 +51,12 @@ export const Screen7 = () => {
         ]
     };
     const answerFunction = (answer) => {
+        setChosenAnswerId(answer.id);
         updateRotations(answer.rotation);
     };
     return (
         <>
-            <QuestionWrapper question={question} answerFunction={answerFunction}/>
+            <QuestionWrapper question={question} answerFunction={answerFunction} chosenAnswerId={chosenAnswerId}/>
             <BentSurfaceWrapper>
                 <BentSurfaceStyled />
             </BentSurfaceWrapper>

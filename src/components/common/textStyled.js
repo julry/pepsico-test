@@ -3,6 +3,9 @@ import styled from 'styled-components';
 export const TextStyled = styled.p`
     font-size: 18px;
     
+    @media screen and (max-height: 630px){
+        font-size: 16px;
+    }
 `;
 
 export const Title = styled.p`

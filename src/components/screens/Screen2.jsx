@@ -23,6 +23,9 @@ const PositionText = styled(TextStyled)`
 const TextWrapper = styled.div`
     max-width: 350px;
     padding: 0 15px 0 25px;
+    @media screen and (max-width: 300px){
+        padding: 0 10px;
+    }
 `;
 
 const BentSurfaceWrapper = styled(SvgWrapper)`
@@ -64,6 +67,15 @@ const MentorsContainer = styled.div`
     padding-left: 15px;
     padding-top: 50px;
     margin: 0 15px 0 25px;
+    
+    @media screen and (max-height: 630px){
+        padding-top: 40px;
+    }
+    @media screen and (max-width: 300px){
+        padding-left: 10px;
+        padding-top: 30px;
+        margin: 0 10px;
+    }
 `;
 
 const MentorRow1 = styled.div`
@@ -72,21 +84,42 @@ const MentorRow1 = styled.div`
 const MentorRow2 = styled(MentorRow1)`
     margin-top: -13px;
     margin-left: 52px;
+    @media screen and (max-width: 330px) {
+        margin-top: -9px;
+        margin-left: 46px;
+    }
 `;
 const MentorInfoWrapper = styled.div`
     border: 2px solid white;
-    width: 100vw;
+    width: calc(100vw - 30px);
     max-width: 345px;
     padding: 24px;
     margin-bottom: 13px;
     height: 255px;
     margin-top: -20px;
+    @media screen and (max-width: 300px){
+        padding: 12px;
+        
+        & ${TextStyled} {
+          font-size: 15px;
+        }
+    }
 `;
 
 const MentorCardStyled = styled(MentorCard)`
     margin-right: 40px;
+    min-width: 64px;
+    min-height: 64px;
+    
     &:last-child{
         margin: 0;
+    }
+    
+    @media screen and (max-width: 330px) {
+        max-width: 50px;
+        max-height: 50px;
+        min-width: 50px;
+        min-height: 50px;
     }
 `;
 const ButtonStyled = styled(Button)`

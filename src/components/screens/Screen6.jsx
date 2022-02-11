@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { PROJECT_TYPES } from '../../constants/projectTypes';
 import { useProgress } from '../../hooks/useProgress';
 import { QuestionWrapper } from '../common/QuestionWrapper';
 
 export const Screen6 = (props) => {
     const {updateProgress} = useProgress();
+    const [chosenAnswerId, setChosenAnswerId] = useState('');
     const question = {
         title: 'Выбор проекта',
         text: 'Ура, ты покорил аккаунт-менеджмент! Чем бы ты хотел заниматься на проекте, который будешь развивать на своем BREAKOUT’е?:)',
@@ -32,7 +33,8 @@ export const Screen6 = (props) => {
         ]
     };
     const answerFunction = (answer) => {
+        setChosenAnswerId(answer.id);
         updateProgress('project', answer.project);
     };
-    return  <QuestionWrapper question={question} answerFunction={answerFunction}/>;
+    return  <QuestionWrapper question={question} answerFunction={answerFunction} chosenAnswerId={chosenAnswerId}/>;
 };

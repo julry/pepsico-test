@@ -4,8 +4,6 @@ import { MentorCard } from './MentorCard';
 import { useProgress } from '../../hooks/useProgress';
 import { getPhraseByScreenId } from '../../utils/getPhraseByScreenId';
 import { BigSphereTop } from './BigSphereTop';
-import { WithHeaderWrapper } from './WithHeaderWrapper';
-import { TextStyled } from './textStyled';
 
 const Wrapper = styled.div`
   display: flex;
@@ -19,6 +17,8 @@ const MentorCardStyled = styled(MentorCard)`
   margin-left: auto;
   height: 40px;
   width: 40px;
+  min-height: 40px;
+  min-width: 40px;
   margin-right: 20px;
   margin-top: 30px;
   z-index: 100;

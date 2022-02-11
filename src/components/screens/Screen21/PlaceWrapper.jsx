@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react';
-import styled, { keyframes } from 'styled-components';
+import React from 'react';
+import styled from 'styled-components';
 import { useDrag, useDrop } from 'react-dnd';
 import { usePreview } from 'react-dnd-multi-backend'
 
@@ -26,24 +26,26 @@ const Wrapper  = styled.div`
     align-items: center;
     justify-content: center;
     opacity: ${({isPreview}) => isPreview ? 0.5 : 1};
+    
+    @media screen and (max-width: 365px) {
+        width: ${({isPlaceName}) => isPlaceName ? '150px' : '123px'};
+        & p {
+            font-size: 14px;
+        }
+    }
+    
+    @media screen and (max-width: 300px) {
+        width: ${({isPlaceName}) => isPlaceName ? '130px' : '100px'};
+        & p {
+            font-size: 14px;
+        }
+    }
 `;
-
-const generatePreview = (type, item, style) => (
-    <div style={style}>Generated</div>
-)
 
 const PlacePreview = (props) => {
     const { place, type, isPlaceName } = props;
     const { display, style } = usePreview();
-    let isMounted;
     const text = place[type+'Title'];
-
-    useEffect(() => {
-        isMounted = true;
-        return () => {
-            isMounted = false;
-        };
-    }, [])
 
     if (!display) {
         return null;
@@ -62,7 +64,7 @@ export const PlaceWrapper = (props) => {
     const isPlaceName = type === 'place';
     const id = place.id + type;
 
-    const [{ hovered }, drop] = useDrop(() => ({
+    const [, drop] = useDrop(() => ({
         accept: 'PLACE',
         collect: monitor => ({
             hovered: monitor.canDrop() && monitor.isOver(),

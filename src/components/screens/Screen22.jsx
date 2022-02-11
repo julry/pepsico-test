@@ -107,7 +107,7 @@ export const Screen22 = () => {
                         в ключевых отделах PepsiCo, подавай заявку на PepsiCo BREAKOUT и убедись, что вживую это еще круче и
                         интереснее:)</TextStyled>
                 </PathWrapper>
-                <ButtonStyled>Начать реальный BREAKOUT</ButtonStyled>
+                <ButtonStyled onClick={() => window.open('https://pepsicobreakout.ru/landing/?utm_source=partner&utm_medium=cpc&utm_campaign=futuretoday', '_blank')}>Начать реальный BREAKOUT</ButtonStyled>
             </Wrapper>
         </WithHeaderWrapper>
     );
