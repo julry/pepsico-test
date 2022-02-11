@@ -21,11 +21,18 @@ import { Screen19 } from "./components/screens/Screen19";
 import { Screen20 } from "./components/screens/Screen20";
 import { Screen21 } from "./components/screens/Screen21/Screen21";
 import { Screen22 } from "./components/screens/Screen22";
+import {
+    anBorisuk,
+    diBerganova,
+    inShalneva,
+    vlRastorguev,
+    vlTiranov
+} from './constants/images';
 
 export const screens = [
     {
         component: Screen1,
-        preloadImages: [],
+        preloadImages: [anBorisuk, diBerganova, inShalneva, vlRastorguev, vlTiranov],
     },
     {
         component: Screen2,
