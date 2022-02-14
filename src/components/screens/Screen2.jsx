@@ -92,11 +92,15 @@ const MentorRow2 = styled(MentorRow1)`
 const MentorInfoWrapper = styled.div`
     border: 2px solid white;
     width: calc(100vw - 30px);
-    max-width: 345px;
+    max-width: 360px;
     padding: 24px;
     margin-bottom: 13px;
-    height: 255px;
+    min-height: 255px;
     margin-top: -20px;
+    
+    @media screen and (min-width: 640px) {
+        min-height: 270px;
+    }
     @media screen and (max-width: 300px){
         padding: 12px;
         
