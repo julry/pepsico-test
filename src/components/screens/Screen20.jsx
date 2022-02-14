@@ -33,14 +33,13 @@ const SurfaceBentStyled = styled(BentSurface)`
 export const Screen20 = () => {
     const question = getQuestionById('16');
     return (
-        <>
-            <TaskQuestionWrapper question={question}/>
-            <SphereDentWrapper>
-                <SphereDentStyled />
-            </SphereDentWrapper>
-            <SurfaceBentWrapper>
-                <SurfaceBentStyled/>
-            </SurfaceBentWrapper>
-        </>
+            <TaskQuestionWrapper question={question}>
+                <SphereDentWrapper>
+                    <SphereDentStyled />
+                </SphereDentWrapper>
+                <SurfaceBentWrapper>
+                    <SurfaceBentStyled/>
+                </SurfaceBentWrapper>
+            </TaskQuestionWrapper>
     );
 };

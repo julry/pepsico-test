@@ -37,7 +37,6 @@ const CylinderStyled = styled(Cylinder)`
     right: 0;
     
     ${imageSizeMixin({height: '260px', width: '272px'})};
-
 `;
 
 const BentSurfaceWrapper = styled(SvgWrapper)`
@@ -69,8 +68,8 @@ export const Screen3 = () => {
                 <TextWrapper>
                     <Title>Поехали!</Title>
                     <br/>
-                    <TextStyled>Ты начинаешь свой BREAKOUT в отделе аккаунт-менеджмента. Сегодня ты пройдешь несколько
-                        ротаций по каждому отделу PepsiCo, где сможешь проявить себя настоящим специалистом с серьезными
+                    <TextStyled>Ты начинаешь свой BREAKOUT{'\n'}в отделе аккаунт-менеджмента. Сегодня ты пройдешь несколько
+                        ротаций по каждому отделу PepsiCo, где сможешь проявить себя настоящим специалистом{'\n'}с серьезными
                         задачами — это будет уникальный путь, который ты построишь сам. </TextStyled>
                 </TextWrapper>
                 <ButtonStyled onClick={onStart}>Начать путь к успеху</ButtonStyled>

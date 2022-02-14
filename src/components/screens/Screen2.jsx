@@ -17,12 +17,12 @@ const Wrapper = styled.div`
 `;
 
 const PositionText = styled(TextStyled)`
-    font-size: 16px;
+    font-size: 14px;
     opacity: 0.7;
 `;
 
 const TextWrapper = styled.div`
-    max-width: 350px;
+    max-width: 340px;
     padding: 0 15px 0 25px;
     
     @media screen and (max-width: 300px){

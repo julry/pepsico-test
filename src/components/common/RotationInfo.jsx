@@ -34,7 +34,7 @@ const Modal = styled.div`
     top: 20px;
     background: #000;
     border: 2px solid white;
-    padding: 55px 15px 8px;
+    padding: 55px 15px 15px;
     z-index: 20;
     width: calc(100vw - 70px);
     max-width: 305px;

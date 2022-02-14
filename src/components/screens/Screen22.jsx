@@ -61,6 +61,18 @@ const CompetenceText = styled(TextStyled)`
     position: relative;
 `;
 
+const TextStyledDesk = styled(TextStyled)`
+    @media screen and (max-width: 599px){
+        display: none;
+    }
+`;
+
+const TextStyledMobile = styled(TextStyled)`
+    @media screen and (min-width: 600px){
+        display: none;
+    }
+`;
+
 export const Screen22 = () => {
     const {answers, project, rotations: passedRotations} = useProgress();
     const [topCompetences, setTopCompetences] = useState([]);
@@ -109,10 +121,18 @@ export const Screen22 = () => {
                     )}
                 </PathWrapper>
                 <PathWrapper>
-                    <TextStyled>А чтобы продолжить свой уникальный путь ротаций
-                        в ключевых отделах PepsiCo, подавай заявку на PepsiCo BREAKOUT и убедись, что вживую это еще
-                        круче и
-                        интереснее:)</TextStyled>
+                    <>
+                        <TextStyledDesk> А чтобы продолжить свой уникальный путь ротаций{'\n'}
+                            в ключевых отделах PepsiCo, подавай заявку {'\n'}на PepsiCo BREAKOUT и убедись, что вживую {'\n'}это еще
+                           круче и интереснее:) </TextStyledDesk>
+                        <TextStyledMobile>
+                            А чтобы продолжить свой уникальный путь ротаций
+                            {'\n'}в ключевых отделах PepsiCo, подавай заявку на PepsiCo BREAKOUT и убедись, что вживую это еще
+                            круче и
+                            интереснее:)
+                        </TextStyledMobile>
+                        </>
+                    <TextStyled></TextStyled>
                 </PathWrapper>
                 <ButtonStyled onClick={onProgrammeClick}>Начать реальный BREAKOUT</ButtonStyled>
             </Wrapper>

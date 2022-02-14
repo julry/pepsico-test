@@ -56,14 +56,13 @@ const Wrapper = styled.div`
     align-items: center;
     margin-left: -25px;
     margin-top: -10px;
+    max-width: 610px;
+    width: calc(100vw - 20px);
 `;
 
 const ButtonStyled = styled(Button)`
     width: 295px;
     
-    @media screen and (max-width: 640px){
-        margin-left: 25px;
-    }
     @media screen and (max-width: 300px) {
             width: 200px;
     }
@@ -74,7 +73,6 @@ const SurfacesWrapper = styled.div`
     bottom: 0;
     display: flex;
     width: 100vw;
-    margin-right: -15px;
     justify-content: space-between;
     align-items: flex-end;
     
