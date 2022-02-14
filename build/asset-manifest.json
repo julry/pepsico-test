@@ -1,20 +1,26 @@
 {
   "files": {
-    "main.css": "./static/css/main.ac388055.css",
-    "main.js": "./static/js/main.756e6c8c.js",
+    "main.css": "./static/css/main.65b2e540.css",
+    "main.js": "./static/js/main.30e3fbd5.js",
     "static/media/background.png": "./static/media/background.a92e789e9e5325fe704f.png",
+    "static/media/Gotham-Book.ttf": "./static/media/Gotham-Book.6f0fc4e65b2b74de61c5.ttf",
+    "static/media/Gotham-Bold.ttf": "./static/media/Gotham-Bold.b77f9460e9e9c62c7b2f.ttf",
     "static/media/inShalneva.png": "./static/media/inShalneva.e3ba6035e4cd728adfd6.png",
+    "static/media/Gotham-Book.woff": "./static/media/Gotham-Book.0a97b0e648c82825c559.woff",
     "static/media/diBerganova.png": "./static/media/diBerganova.2935ed355eecdd19511f.png",
+    "static/media/Gotham-Bold.woff": "./static/media/Gotham-Bold.df56df694d49cc707756.woff",
     "static/media/vlRastorguev.png": "./static/media/vlRastorguev.c302701046f068034b65.png",
     "static/media/vlTiranov.png": "./static/media/vlTiranov.46a84901b11f912644e0.png",
     "static/media/breakoutLogo.png": "./static/media/breakoutLogo.201638212da61a67272f.png",
     "static/media/anBorisuk.png": "./static/media/anBorisuk.c5cfc22957094196ec78.png",
+    "static/media/Gotham-Book.woff2": "./static/media/Gotham-Book.2f62b850788c0c0d6adb.woff2",
+    "static/media/Gotham-Bold.woff2": "./static/media/Gotham-Bold.0d0bf56e1e7f61d4cc10.woff2",
     "index.html": "./index.html",
-    "main.ac388055.css.map": "./static/css/main.ac388055.css.map",
-    "main.756e6c8c.js.map": "./static/js/main.756e6c8c.js.map"
+    "main.65b2e540.css.map": "./static/css/main.65b2e540.css.map",
+    "main.30e3fbd5.js.map": "./static/js/main.30e3fbd5.js.map"
   },
   "entrypoints": [
-    "static/css/main.ac388055.css",
-    "static/js/main.756e6c8c.js"
+    "static/css/main.65b2e540.css",
+    "static/js/main.30e3fbd5.js"
   ]
 }
