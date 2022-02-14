@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import { useProgress } from '../../hooks/useProgress';
 import { DefaultQuestionWrapper } from './DefaulQuestionWrapper';
 import { isTouchDevice } from '../../utils/isTouchDevice';
+import { TextStyled } from './textStyled';
 
 const AnswerWrapper = styled.div`
     border: 2px solid white;
-    font-size: 18px;
     padding: 15px;
     position: relative;
     z-index: 20;
@@ -17,6 +17,16 @@ const AnswerWrapper = styled.div`
           background: linear-gradient(225deg, rgba(0,76,151,0.8) 0%, rgba(9,9,9,0.8) 100.05%);
         }
     `};
+    
+    & p {
+        font-size: 16px;
+        line-height: 19px;
+    
+        @media screen and (max-height: 630px){
+            font-size: 14px;
+            line-height: 17px;
+        }
+    }
     
     & + &{
         margin-top: 13px;
@@ -50,7 +60,9 @@ export const QuestionWrapper = (props) => {
                     onClick={() => onAnswerChoose(answer)}
                     chosen={chosenAnswerId === answer.id}
                 >
-                    {answer.text}
+                    <p>
+                        {answer.text}
+                    </p>
                 </AnswerWrapper>
             ))}
         </DefaultQuestionWrapper>
