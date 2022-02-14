@@ -4,7 +4,7 @@ import { useProgress } from '../../hooks/useProgress';
 import { getQuestionByProject } from '../../utils/getQuestionByProject';
 
 export const Screen12 = () => {
-    const { project } = useProgress();
+    const {project} = useProgress();
     const question = getQuestionByProject(project);
-    return <QuestionWrapper question={question} />
+    return <QuestionWrapper question={question}/>;
 };

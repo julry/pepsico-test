@@ -54,25 +54,24 @@ export const Board = (props) => {
         const newDropPlace = {
             [place.type + 'Title']: dragRow[place.type + 'Title'],
             [place.type]: dragRow[place.type]
-        }
+        };
         const newDragPlace = {
             [place.type + 'Title']: dropRow[place.type + 'Title'],
             [place.type]: dropRow[place.type]
-        }
+        };
 
         newPlaces[newPlaces.indexOf(dropRow)] = {...dropRow, ...newDropPlace, order: finalOrder, touched: true};
         if (dropId !== dragId) {
-            newPlaces[newPlaces.indexOf(dragRow)] = {...dragRow, ...newDragPlace };
+            newPlaces[newPlaces.indexOf(dragRow)] = {...dragRow, ...newDragPlace};
         }
 
         if (newPlaces.filter(place => !place.touched).length === 1) {
             const untouchedLast = newPlaces.filter(place => !place.touched)[0];
             let index;
-            if (untouchedLast === dragRow)  index = newPlaces.indexOf(dragRow);
-            else index = newPlaces.indexOf(untouchedLast)
-            newPlaces[index] = {...untouchedLast, touched: true, order: finalOrder}
+            if (untouchedLast === dragRow) index = newPlaces.indexOf(dragRow);
+            else index = newPlaces.indexOf(untouchedLast);
+            newPlaces[index] = {...untouchedLast, touched: true, order: finalOrder};
         }
-
 
         onPositionChange(newPlaces);
     }
@@ -84,10 +83,10 @@ export const Board = (props) => {
             <Wrapper isEverythingTouched={isEverythingTouched}>
                 {
                     places.map((place, placeNum) =>
-                        place.order.map((type, num)=> (
+                        place.order.map((type, num) => (
                             <PlaceWrapper
                                 key={place.id + type}
-                                elemNum={placeNum+num}
+                                elemNum={placeNum + num}
                                 type={type}
                                 place={place}
                                 onPlaceDrop={handlePlacesDrop}

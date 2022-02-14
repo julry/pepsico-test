@@ -1,9 +1,9 @@
 export const ROTATION_TYPES = {
-    accManagement: 'accManagement',
-    brandMarketing: 'brandMarketing',
-    electronicCommerce: 'electronicCommerce',
+    accManagement: 'account',
+    brandMarketing: 'brand',
+    electronicCommerce: 'ecommerce',
     insights: 'insights',
-    revenueManagement: 'revenueManagement',
+    revenueManagement: 'incomes',
     category: 'category',
-    businessDevelopment: 'businessDevelopment',
+    businessDevelopment: 'business',
 }

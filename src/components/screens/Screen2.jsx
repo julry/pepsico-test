@@ -10,6 +10,7 @@ import { BentSurface } from '../svg/BentSurface';
 import { DotsCircle } from '../svg/DotsCircle';
 import { BigSphereTop } from '../common/BigSphereTop';
 import { imageSizeMixin } from '../../utils/styles/mixins';
+import { reachMetrikaGoal } from '../../utils/reachMetrikaGoal';
 
 const Wrapper = styled.div`
     padding: 0 15px;
@@ -23,6 +24,7 @@ const PositionText = styled(TextStyled)`
 const TextWrapper = styled.div`
     max-width: 350px;
     padding: 0 15px 0 25px;
+    
     @media screen and (max-width: 300px){
         padding: 0 10px;
     }
@@ -71,6 +73,7 @@ const MentorsContainer = styled.div`
     @media screen and (max-height: 630px){
         padding-top: 40px;
     }
+    
     @media screen and (max-width: 300px){
         padding-left: 10px;
         padding-top: 30px;
@@ -126,6 +129,7 @@ const MentorCardStyled = styled(MentorCard)`
         min-height: 50px;
     }
 `;
+
 const ButtonStyled = styled(Button)`
     padding: 15px 24px;
 `;
@@ -137,6 +141,7 @@ export const Screen2 = () => {
 
     const onMentorChoose = () => {
         updateProgress('mentor', {...chosenMentor});
+        reachMetrikaGoal('mentor');
         next();
     };
 
@@ -160,7 +165,8 @@ export const Screen2 = () => {
                             <Title>Привет!</Title>
                             <br/>
                             <TextStyled>
-                                Ты в начале своего пути к карьере мечты в PepsiCo! Сейчас тебе нужно выбрать своего ментора :) Этот человек станет твоим наставником и будет помогать
+                                Ты в начале своего пути к карьере мечты в PepsiCo! Сейчас тебе нужно выбрать своего
+                                ментора :) Этот человек станет твоим наставником и будет помогать
                                 {'\n'}с выбором ротаций и прокачкой лидерских навыков
                                 {'\n'}на протяжении всей программы.
                             </TextStyled>
@@ -180,7 +186,7 @@ export const Screen2 = () => {
                                 key={mentor.name}
                                 mentor={mentor}
                                 isChosen={chosenMentor.id === mentor.id}
-                                onClick={()=>setChosenMentor({...mentor})}
+                                onClick={() => setChosenMentor({...mentor})}
                             />
                         ) : null)}
                     </MentorRow1>
@@ -190,7 +196,7 @@ export const Screen2 = () => {
                                 key={mentor.name}
                                 mentor={mentor}
                                 isChosen={chosenMentor.id === mentor.id}
-                                onClick={()=>setChosenMentor({...mentor})}
+                                onClick={() => setChosenMentor({...mentor})}
                             />
                         ) : null)}
                     </MentorRow2>

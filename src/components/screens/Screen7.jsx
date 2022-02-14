@@ -7,6 +7,7 @@ import { SvgWrapper } from '../common/SvgWrapper';
 import { BentSurface } from '../svg/BentSurface';
 import { Tor } from '../svg/Tor';
 import { imageSizeMixin } from '../../utils/styles/mixins';
+import { reachMetrikaGoal } from '../../utils/reachMetrikaGoal';
 
 const BentSurfaceWrapper = styled(SvgWrapper)`
     bottom: 0;
@@ -23,10 +24,10 @@ const BentSurfaceStyled = styled(BentSurface)`
 `;
 
 const TorWrapper = styled(SvgWrapper)`
-  right: 0;
-  bottom: 10.79vh;
-  
-  ${imageSizeMixin({height: '106px', width: '108px'})};
+    right: 0;
+    bottom: 10.79vh;
+    
+    ${imageSizeMixin({height: '106px', width: '108px'})};
 `;
 
 
@@ -52,8 +53,10 @@ export const Screen7 = () => {
     };
     const answerFunction = (answer) => {
         setChosenAnswerId(answer.id);
+        reachMetrikaGoal('rotation-choice2');
         updateRotations(answer.rotation);
     };
+
     return (
         <>
             <QuestionWrapper question={question} answerFunction={answerFunction} chosenAnswerId={chosenAnswerId}/>

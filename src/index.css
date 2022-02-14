@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: Muller, Tahoma, Geneva, sans-serif;
+  font-family: Gotham, Tahoma, Geneva, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: white;
@@ -23,7 +23,7 @@ p {
 }
 
 button{
-  font-family: Muller, Tahoma, Geneva, sans-serif;
+  font-family: Gotham, Tahoma, Geneva, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

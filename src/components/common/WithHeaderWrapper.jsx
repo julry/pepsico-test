@@ -10,12 +10,13 @@ const Wrapper = styled.div`
     @media screen and (min-width: 640px) {
         padding-top: 150px;
     }
-`
+`;
+
 export const WithHeaderWrapper = (props) => {
-    return(
+    return (
         <Wrapper>
-            <Header />
+            <Header/>
             {props.children}
         </Wrapper>
-    )
-}
+    );
+};

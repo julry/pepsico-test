@@ -14,7 +14,7 @@ const ButtonStyled = styled.button`
     position: relative;
     z-index: 1000;
 
-    ${({isTouchDevice}) =>  isTouchDevice ? `` : `
+    ${({isTouchDevice}) => isTouchDevice ? `` : `
         &:hover{
             background: linear-gradient(225deg, #004C97 0%, #090909 100.05%);
         }
@@ -24,6 +24,7 @@ const ButtonStyled = styled.button`
         font-size: 20px;
   }
 `;
+
 export const Button = (props) => {
-    return <ButtonStyled {...props} isTouchDevice={isTouchDevice()}>{props.children}</ButtonStyled>
-}
+    return <ButtonStyled {...props} isTouchDevice={isTouchDevice()}>{props.children}</ButtonStyled>;
+};

@@ -1,19 +1,19 @@
 @font-face {
-    font-family: 'Muller';
-    src: local('Muller Regular'), local('Muller-Regular'),
-        url('./static/fonts/MullerRegular/MullerRegular.woff2') format('woff2'),
-        url('./static/fonts/MullerRegular/MullerRegular.woff') format('woff'),
-        url('./static/fonts/MullerRegular/MullerRegular.ttf') format('truetype');
-    font-weight: 400;
+    font-family: 'Gotham';
+    src: local('Gotham Book'), local('Gotham-Book'),
+    url('./static/fonts/GothamRegular/Gotham-Book.woff2') format('woff2'),
+    url('./static/fonts/GothamRegular/Gotham-Book.woff') format('woff'),
+    url('./static/fonts/GothamRegular/Gotham-Book.ttf') format('truetype');
+    font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Muller';
-    src: local('Muller Extra Bold'), local('Muller-Extra-Bold'),
-    url('./static/fonts/MullerExtraBold/MullerExtraBold.woff2') format('woff2'),
-    url('./static/fonts/MullerExtraBold/MullerExtraBold.woff') format('woff'),
-    url('./static/fonts/MullerExtraBold/MullerExtraBold.ttf') format('truetype');
-    font-weight: 800;
+    font-family: 'Gotham';
+    src: local('Gotham Bold'), local('Gotham-Bold'),
+    url('./static/fonts/GothamBold/Gotham-Bold.woff2') format('woff2'),
+    url('./static/fonts/GothamBold/Gotham-Bold.woff') format('woff'),
+    url('./static/fonts/GothamBold/Gotham-Bold.ttf') format('truetype');
+    font-weight: 700;
     font-style: normal;
 }

@@ -1,6 +1,6 @@
 export const PROJECT_TYPES = {
-    sales: 'sales',
-    communication: 'communication',
+    sales: 'kvus',
+    communication: 'clients',
     promo: 'promo',
-    branding: 'branding'
+    branding: 'nosugar'
 }
