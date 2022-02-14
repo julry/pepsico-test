@@ -15,6 +15,18 @@ const TextWrapper = styled.div`
     margin: 20px 0;
 `;
 
+const TextStyledDesk = styled(TextStyled)`
+    @media screen and (max-width: 599px){
+        display: none;
+    }
+`;
+
+const TextStyledMobile = styled(TextStyled)`
+    @media screen and (min-width: 600px){
+        display: none;
+    }
+`;
+
 export const DefaultQuestionWrapper = (props) => {
     const {question, isTextShown = true} = props;
     const {progress} = useProgress();
@@ -25,7 +37,12 @@ export const DefaultQuestionWrapper = (props) => {
                 <TextWrapper>
                     <Title>{question.title}</Title>
                     <br/>
-                    {isTextShown && <TextStyled>{question.text}</TextStyled>}
+                    {isTextShown && (
+                        <>
+                            <TextStyledMobile>{question.text}</TextStyledMobile>
+                            <TextStyledDesk>{question.textDesk ? question.textDesk : question.text}</TextStyledDesk>
+                        </>
+                    )}
                 </TextWrapper>
 
                 {props.children}

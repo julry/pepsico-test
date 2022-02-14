@@ -12,6 +12,7 @@ const Wrapper = styled.div`
   left: 50%;
   transform: translate(-50%, 0);
   width: 100%;
+  z-index: 100;
 `;
 
 const MentorCardStyled = styled(MentorCard)`
@@ -27,6 +28,7 @@ const MentorCardStyled = styled(MentorCard)`
   & img {
     margin-left: -5px;
     margin-top: 3px;
+    z-index: 100;
   }
 `;
 
@@ -46,12 +48,20 @@ const PhraseWrapper = styled.div`
     top: 22px;
     height: 56px;
     border: 2px solid white;
-    margin-left: 35px;
-    font-size: 14px;
-    z-index: 10;
-    width: calc(100% - 74px);
+    z-index: 40;
+    max-width: calc(100% - 50px);
     padding: 0 35px 0 13px;
-    max-width: 350px;
+    min-width: calc(100% - 74px);
+    
+    & p{
+      font-size: 12px;
+    }
+    
+    @media screen and (min-width: 640px){
+        max-width: 550px;
+        min-width: 550px;
+        font-size: 14px;
+    }
 `;
 
 export const Header = () => {

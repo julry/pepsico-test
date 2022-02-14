@@ -43,14 +43,17 @@ export const Board = (props) => {
     const {places, onPositionChange} = props;
 
     function handlePlacesDrop(place, selectedPlace) {
-        if (place.type === selectedPlace.type) return;
-
         const dropId = selectedPlace.id[0];
         const dragId = place.id[0];
         const finalOrder = ['place', 'size'];
         let newPlaces = [...places];
         const dropRow = newPlaces.find(place => place.id === dropId);
         const dragRow = newPlaces.find(place => place.id === dragId);
+
+        if (place.type === selectedPlace.type && !dropRow.touched) {
+            return;
+        }
+
         const newDropPlace = {
             [place.type + 'Title']: dragRow[place.type + 'Title'],
             [place.type]: dragRow[place.type]

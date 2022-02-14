@@ -16,6 +16,7 @@ export const TaskQuestionWrapper = (props) => {
     return (
         <DefaultQuestionWrapper question={question}>
             <Button onClick={onTaskBeginClick}>Сопоставить</Button>
+            {props.children}
         </DefaultQuestionWrapper>
     );
 };

@@ -5,6 +5,7 @@ import { DefaultQuestionWrapper } from './DefaulQuestionWrapper';
 import { isTouchDevice } from '../../utils/isTouchDevice';
 import { reachMetrikaGoal } from '../../utils/reachMetrikaGoal';
 import { questions } from '../../questions.config';
+import { TextStyled } from './textStyled';
 
 const AnswerWrapper = styled.div`
     border: 2px solid white;
@@ -19,22 +20,34 @@ const AnswerWrapper = styled.div`
         }
     `};
     
-    & p {
-        font-size: 15px;
-        line-height: 18px;
-    
-        @media screen and (max-height: 630px){
-            font-size: 13px;
-            line-height: 17px;
-        }
-    }
-    
     & + &{
         margin-top: 13px;
     }
     
     &:last-child {
         margin-bottom: 10px;
+    }
+`;
+
+const AnswerText = styled.p`
+    font-size: 15px;
+    line-height: 18px;
+    
+    @media screen and (max-height: 630px){
+        font-size: 13px;
+        line-height: 17px;
+    }
+`;
+
+const TextStyledDesk = styled(AnswerText)`
+    @media screen and (max-width: 599px){
+        display: none;
+    }
+`;
+
+const TextStyledMobile = styled(AnswerText)`
+    @media screen and (min-width: 600px){
+        display: none;
     }
 `;
 
@@ -68,11 +81,13 @@ export const QuestionWrapper = (props) => {
                     onClick={() => onAnswerChoose(answer)}
                     chosen={chosenAnswerId === answer.id}
                 >
-                    <p>
-                        {answer.text}
-                    </p>
+                    <>
+                        <TextStyledMobile>{answer.text}</TextStyledMobile>
+                        <TextStyledDesk>{answer.textDesk ? answer.textDesk : answer.text}</TextStyledDesk>
+                    </>
                 </AnswerWrapper>
             ))}
+            {props.children}
         </DefaultQuestionWrapper>
     );
 };
