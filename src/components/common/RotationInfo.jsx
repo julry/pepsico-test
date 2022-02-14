@@ -14,6 +14,7 @@ const Wrapper = styled.div`
 const Label = styled(TextStyled)`
    text-transform: uppercase;
    width: max-content;
+   font-size: 18px;
    
    @media screen and (max-height: 630px){
         font-size: 15px;
