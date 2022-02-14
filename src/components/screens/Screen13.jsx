@@ -7,6 +7,7 @@ import { SvgWrapper } from '../common/SvgWrapper';
 import { SphereDent } from '../svg/SphereDent';
 import { DotsCircle } from '../svg/DotsCircle';
 import { imageSizeMixin } from '../../utils/styles/mixins';
+import { reachMetrikaGoal } from '../../utils/reachMetrikaGoal';
 
 const SphereDentWrapper = styled(SvgWrapper)`
     bottom: 30px;
@@ -36,6 +37,7 @@ export const Screen13 = () => {
     const [chosenAnswerId, setChosenAnswerId] = useState('');
 
     const {updateRotations} = useProgress();
+
     const question = {
         title: 'В какую команду ворвемся теперь?',
         text: 'Проект тем и прекрасен, что задачи приходят нестандартные!',
@@ -54,8 +56,10 @@ export const Screen13 = () => {
     };
     const answerFunction = (answer) => {
         setChosenAnswerId(answer.id);
+        reachMetrikaGoal('rotation-choice3');
         updateRotations(answer.rotation);
     };
+
     return (
         <>
             <QuestionWrapper question={question} answerFunction={answerFunction} chosenAnswerId={chosenAnswerId}/>

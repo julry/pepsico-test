@@ -21,11 +21,11 @@ const Label = styled(TextStyled)`
 `;
 
 const InfoSight = styled(InfoIcon)`
-  width: 21px;
-  height: 21px;
-  margin-top: -10px;
-  margin-left: 5px;
-  cursor: pointer;
+    width: 21px;
+    height: 21px;
+    margin-top: -10px;
+    margin-left: 5px;
+    cursor: pointer;
 `;
 
 const Modal = styled.div`
@@ -38,6 +38,7 @@ const Modal = styled.div`
     width: calc(100vw - 70px);
     max-width: 305px;
 `;
+
 const CloseIconStyled = styled(CloseIcon)`
     position: absolute;
     top: 14px;
@@ -57,7 +58,7 @@ export const RotationInfo = (props) => {
     return (
         <Wrapper>
             <Label>{rotation.name}</Label>
-            <InfoSight onClick={onInfoClick} />
+            <InfoSight onClick={onInfoClick}/>
             {progress.rotationInfo && <Modal>
                 <CloseIconStyled onClick={onInfoClick}/>
                 <TextStyled>{rotation.text} </TextStyled>

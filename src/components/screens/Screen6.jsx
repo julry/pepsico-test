@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { PROJECT_TYPES } from '../../constants/projectTypes';
 import { useProgress } from '../../hooks/useProgress';
 import { QuestionWrapper } from '../common/QuestionWrapper';
+import { reachMetrikaGoal } from '../../utils/reachMetrikaGoal';
 
-export const Screen6 = (props) => {
+export const Screen6 = () => {
     const {updateProgress} = useProgress();
     const [chosenAnswerId, setChosenAnswerId] = useState('');
     const question = {
@@ -34,7 +35,9 @@ export const Screen6 = (props) => {
     };
     const answerFunction = (answer) => {
         setChosenAnswerId(answer.id);
+        reachMetrikaGoal('project-choice');
         updateProgress('project', answer.project);
     };
+
     return  <QuestionWrapper question={question} answerFunction={answerFunction} chosenAnswerId={chosenAnswerId}/>;
 };

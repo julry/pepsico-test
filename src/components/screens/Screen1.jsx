@@ -11,6 +11,7 @@ import { DotsCircle } from '../svg/DotsCircle';
 import { SvgWrapper } from '../common/SvgWrapper';
 import { BentSurface } from '../svg/BentSurface';
 import { imageSizeMixin } from '../../utils/styles/mixins';
+import { reachMetrikaGoal } from '../../utils/reachMetrikaGoal';
 
 const SphereStyled = styled(Sphere)`
     margin-bottom: 20px;
@@ -23,21 +24,21 @@ const SphereStyled = styled(Sphere)`
 `;
 
 const IntroTitle = styled(TextStyled)`
-  text-align: center;
-  letter-spacing: 0.26em;
-  text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
 `;
 
 const ImageWrapper = styled.div`
-  width: 245px;
-  height: 156px;
-  margin: 30px 0 50px;
+    width: 245px;
+    height: 156px;
+    margin: 30px 0 50px;
 `;
 
 const Image = styled.img`
-  height:100%;
-  object-fit: contain;
-  width: 100%;
+    height:100%;
+    object-fit: contain;
+    width: 100%;
 `;
 
 const LogoStyled = styled(Logo)`
@@ -63,7 +64,6 @@ const CylinderStyled = styled(Cylinder)`
     ${imageSizeMixin({height: '190px', width: '198px'})};
 `;
 
-
 const BentSurfaceWrapper = styled(SvgWrapper)`
     bottom: 15px;
     right: 0;
@@ -87,17 +87,24 @@ const BentSurfaceStyled = styled(BentSurface)`
     }
 `;
 
-
 const DotsCircleStyled = styled(DotsCircle)`
     margin-top: 37px;
+    
     ${imageSizeMixin({height: '71px', width: '71px'})};
 
     @media screen and (min-width: 640px){
         margin-top: 55px;
     }
 `;
+
 export const Screen1 = () => {
     const {next} = useProgress();
+
+    const onStart = () => {
+        reachMetrikaGoal('start');
+        next();
+    };
+
     return (
         <>
             <SphereStyled/>
@@ -105,7 +112,7 @@ export const Screen1 = () => {
             <ImageWrapper>
                 <Image src={breakoutLogo} alt={''}/>
             </ImageWrapper>
-            <Button onClick={next}>Играть</Button>
+            <Button onClick={onStart}>Играть</Button>
             <CylinderWrapper>
                 <CylinderStyled/>
             </CylinderWrapper>

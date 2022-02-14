@@ -8,6 +8,7 @@ import { rotations } from '../../rotations.config';
 import { WithHeaderWrapper } from '../common/WithHeaderWrapper';
 import { TextStyled, Title } from '../common/textStyled';
 import { ROTATION_TYPES } from '../../constants/rotationsTypes';
+import { reachMetrikaGoal } from '../../utils/reachMetrikaGoal';
 
 const Wrapper = styled.div`
     padding: 0 35px 35px;
@@ -31,17 +32,17 @@ const RotationWrapper = styled.div`
 
 const Text = styled(TextStyled)`
     margin-bottom: 10px;
-`
-const ButtonStyled = styled(Button)`
-  width: 100%;
-  padding-left: 0;
-  padding-right: 0;
-  background: linear-gradient(183.44deg, #004C97 2.83%, #090909 97.16%);
-  &:hover {
-      background: linear-gradient(183.44deg, #090909 2.83%,  #004C97 97.16%);
-  }
 `;
 
+const ButtonStyled = styled(Button)`
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    background: linear-gradient(183.44deg, #004C97 2.83%, #090909 97.16%);
+    &:hover {
+      background: linear-gradient(183.44deg, #090909 2.83%,  #004C97 97.16%);
+    }
+`;
 
 const CompetenceWrapper = styled(RotationWrapper)`
     position: relative;
@@ -58,26 +59,31 @@ const CompetenceResultWrapper = styled.div`
 
 const CompetenceText = styled(TextStyled)`
     position: relative;
-`
+`;
 
 export const Screen22 = () => {
     const {answers, project, rotations: passedRotations} = useProgress();
     const [topCompetences, setTopCompetences] = useState([]);
 
+    const onProgrammeClick = () => {
+        reachMetrikaGoal('click-breakout-programme');
+        window.open('https://pepsicobreakout.ru/landing/?utm_source=partner&utm_medium=cpc&utm_campaign=futuretoday', '_blank');
+    };
+
     const getCompetenceFillPercentage = (points) => {
         const max_points = 8;
         return (points / max_points) * 100;
-    }
+    };
 
     useEffect(() => {
-        setTopCompetences( getCompetences(answers));
+        setTopCompetences(getCompetences(answers));
     }, [answers]);
 
     return (
         <WithHeaderWrapper>
             <Wrapper>
                 <Title>Поздравляем!</Title>
-                <br />
+                <br/>
                 <TextStyled>Ты прошел Твой карьерный BREAKOUT и стал настоящим коммерческим лидером!</TextStyled>
                 <PathWrapper>
                     <Text>Твой путь был тяжел: </Text>
@@ -96,7 +102,7 @@ export const Screen22 = () => {
                     {topCompetences.map((comp, id) => id < 2 ?
                         (
                             <CompetenceWrapper key={comp.name + comp.points}>
-                                <CompetenceResultWrapper percentage={getCompetenceFillPercentage(comp.points)} />
+                                <CompetenceResultWrapper percentage={getCompetenceFillPercentage(comp.points)}/>
                                 <CompetenceText>{comp.name}</CompetenceText>
                             </CompetenceWrapper>)
                         : null
@@ -104,10 +110,11 @@ export const Screen22 = () => {
                 </PathWrapper>
                 <PathWrapper>
                     <TextStyled>А чтобы продолжить свой уникальный путь ротаций
-                        в ключевых отделах PepsiCo, подавай заявку на PepsiCo BREAKOUT и убедись, что вживую это еще круче и
+                        в ключевых отделах PepsiCo, подавай заявку на PepsiCo BREAKOUT и убедись, что вживую это еще
+                        круче и
                         интереснее:)</TextStyled>
                 </PathWrapper>
-                <ButtonStyled onClick={() => window.open('https://pepsicobreakout.ru/landing/?utm_source=partner&utm_medium=cpc&utm_campaign=futuretoday', '_blank')}>Начать реальный BREAKOUT</ButtonStyled>
+                <ButtonStyled onClick={onProgrammeClick}>Начать реальный BREAKOUT</ButtonStyled>
             </Wrapper>
         </WithHeaderWrapper>
     );

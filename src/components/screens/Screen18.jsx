@@ -7,6 +7,7 @@ import { SvgWrapper } from '../common/SvgWrapper';
 import { BentSurface } from '../svg/BentSurface';
 import { Cylinder } from '../svg/Cylinder';
 import { imageSizeMixin } from '../../utils/styles/mixins';
+import { reachMetrikaGoal } from '../../utils/reachMetrikaGoal';
 
 const BentSurfaceWrapper = styled(SvgWrapper)`
     bottom: 0;
@@ -51,7 +52,6 @@ export const Screen18 = () => {
     const { rotations, updateRotations} = useProgress();
 
     const isInsights = rotations[1] === ROTATION_TYPES.insights;
-
     const question = {
         title: isInsights ? 'Ну как, получил собственный инсайт?' : 'Доходы – дело всегда приятное!',
         text: isInsights ? 'Идем дальше!' : 'Двигаемся дальше?',
@@ -70,8 +70,10 @@ export const Screen18 = () => {
     };
     const answerFunction = (answer) => {
         setChosenAnswerId(answer.id);
+        reachMetrikaGoal('rotation-choice4');
         setTimeout(() => updateRotations(answer.rotation), 210);
     };
+
     return (
         <>
             <QuestionWrapper question={question} answerFunction={answerFunction} chosenAnswerId={chosenAnswerId}/>

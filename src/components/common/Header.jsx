@@ -13,6 +13,7 @@ const Wrapper = styled.div`
   transform: translate(-50%, 0);
   width: 100%;
 `;
+
 const MentorCardStyled = styled(MentorCard)`
   margin-left: auto;
   height: 40px;

@@ -9,6 +9,7 @@ import { BentSurface } from '../../svg/BentSurface';
 import { RotatedBentSurface } from '../../svg/RotatedBentSurface';
 import { getQuestionById } from '../../../utils/getQuestionById';
 import { DefaultQuestionWrapper } from '../../common/DefaulQuestionWrapper';
+import { reachMetrikaGoal } from '../../../utils/reachMetrikaGoal';
 
 const INITIAL_PLACES = [
     {
@@ -50,15 +51,16 @@ const INITIAL_PLACES = [
 ];
 
 const Wrapper = styled.div`
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-left: -25px;
-      margin-top: -10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: -25px;
+    margin-top: -10px;
 `;
 
 const ButtonStyled = styled(Button)`
     width: 295px;
+    
     @media screen and (max-width: 640px){
         margin-left: 25px;
     }
@@ -127,13 +129,13 @@ const RightSurface = styled(BentSurface)`
 
 
 export const Screen21 = () => {
-    const { next, updateAnswer} = useProgress();
+    const {next, updateAnswer} = useProgress();
     const [places, setPlaces] = useState(INITIAL_PLACES);
 
     const question = getQuestionById('16');
 
     const onPositionChange = (newPlaces) => {
-        setPlaces([...newPlaces])
+        setPlaces([...newPlaces]);
     };
 
     const onPlacesSave = () => {
@@ -146,14 +148,17 @@ export const Screen21 = () => {
         const correctChosen = places
             .filter(place => place.touched && place.size === correctPlaces[place.place])
             .length;
+
         if (correctChosen === places.length) {
             updateAnswer(question.id, '1');
-        }
-        else {
+        } else {
             updateAnswer(question.id, '2');
         }
+
+        reachMetrikaGoal('business-question2');
         next();
-    }
+    };
+
     return (
         <DefaultQuestionWrapper question={question} isTextShown={false}>
             <Wrapper>

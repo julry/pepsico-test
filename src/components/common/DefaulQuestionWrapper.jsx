@@ -14,6 +14,7 @@ const Wrapper = styled.div`
 const TextWrapper = styled.div`
     margin: 20px 0;
 `;
+
 export const DefaultQuestionWrapper = (props) => {
     const {question, isTextShown = true} = props;
     const {progress} = useProgress();
@@ -23,7 +24,7 @@ export const DefaultQuestionWrapper = (props) => {
             <Wrapper rotationInfo={progress.rotationInfo}>
                 <TextWrapper>
                     <Title>{question.title}</Title>
-                    <br />
+                    <br/>
                     {isTextShown && <TextStyled>{question.text}</TextStyled>}
                 </TextWrapper>
 

@@ -7,8 +7,8 @@ import { TextStyled, Title } from '../common/textStyled';
 import { Cylinder } from '../svg/Cylinder';
 import { SvgWrapper } from '../common/SvgWrapper';
 import { BentSurface } from '../svg/BentSurface';
-import { ROTATION_TYPES } from '../../constants/rotationsTypes';
 import { imageSizeMixin } from '../../utils/styles/mixins';
+import { reachMetrikaGoal } from '../../utils/reachMetrikaGoal';
 
 const Wrapper = styled.div`
     padding: 0 40px;
@@ -30,7 +30,6 @@ const CylinderWrapper = styled(SvgWrapper)`
     left: 0;
     
     ${imageSizeMixin({height: '128px', width: '244px'})};
-
 `;
 
 const CylinderStyled = styled(Cylinder)`
@@ -56,29 +55,32 @@ const BentSurfaceStyled = styled(BentSurface)`
 `;
 
 export const Screen3 = () => {
-    const { next } = useProgress();
+    const {next} = useProgress();
 
     const onStart = () => {
+        reachMetrikaGoal('letsgo');
         next();
     };
 
     return (
         <>
-            <BigSphereTop />
+            <BigSphereTop/>
             <Wrapper>
                 <TextWrapper>
                     <Title>Поехали!</Title>
                     <br/>
-                    <TextStyled>Ты начинаешь свой BREAKOUT в отделе аккаунт-менеджмента. Сегодня ты пройдешь несколько ротаций по каждому отделу PepsiCo, где сможешь проявить себя настоящим специалистом с серьезными задачами —  это будет уникальный путь, который ты построишь сам. </TextStyled>
+                    <TextStyled>Ты начинаешь свой BREAKOUT в отделе аккаунт-менеджмента. Сегодня ты пройдешь несколько
+                        ротаций по каждому отделу PepsiCo, где сможешь проявить себя настоящим специалистом с серьезными
+                        задачами — это будет уникальный путь, который ты построишь сам. </TextStyled>
                 </TextWrapper>
                 <ButtonStyled onClick={onStart}>Начать путь к успеху</ButtonStyled>
             </Wrapper>
             <CylinderWrapper>
-                <CylinderStyled />
+                <CylinderStyled/>
             </CylinderWrapper>
             <BentSurfaceWrapper>
                 <BentSurfaceStyled/>
             </BentSurfaceWrapper>
         </>
-    )
-}
+    );
+};
