@@ -33,21 +33,10 @@ const INITIAL_PROGRESS = {
     currentRotation: ''
 };
 
-function getInitialScreenIndex() {
-    /////////////////// for development ////////////////////////////////////
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const screenParam = urlParams.get('screen');
-
-    ////////////////////////////////////////////////////////////////////////
-
-    return +screenParam || 0;
-}
-
 export function useProgressInit() {
     const [progress, setProgress] = useState(INITIAL_PROGRESS);
 
-    const [currentScreenIndex, setCurrentScreenIndex] = useState(getInitialScreenIndex());
+    const [currentScreenIndex, setCurrentScreenIndex] = useState(0);
     const parsedScreens = useMemo(
         () => parseScreens(currentScreenIndex, progress),
         [currentScreenIndex, progress],
