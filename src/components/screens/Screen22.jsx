@@ -88,6 +88,13 @@ export const Screen22 = () => {
     };
 
     useEffect(() => {
+        window.VK.Retargeting.Init('VK-RTRG-532757-8LbtO');
+        window.VK.Retargeting.Event("test_sucsess");
+        window.VK.Goal('start_trial');
+        window.fbq('track', 'FindLocation');
+    }, []);
+
+    useEffect(() => {
         setTopCompetences(getCompetences(answers));
     }, [answers]);
 

@@ -5,7 +5,6 @@ import { DefaultQuestionWrapper } from './DefaulQuestionWrapper';
 import { isTouchDevice } from '../../utils/isTouchDevice';
 import { reachMetrikaGoal } from '../../utils/reachMetrikaGoal';
 import { questions } from '../../questions.config';
-import { TextStyled } from './textStyled';
 
 const AnswerWrapper = styled.div`
     border: 2px solid white;
